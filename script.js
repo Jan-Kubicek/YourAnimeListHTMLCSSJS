@@ -1,6 +1,19 @@
 const animeList = [];
 const animeGenders = [];
 
+class animeConstructor {
+    constructor(name, episodes, score, gender) {
+        this.name = name;
+        this.episodes = episodes;
+        this.score = score;
+        this.gender = gender;
+    }
+    getName(){return this.name;}
+    getEpisodes(){return this.episodes;}
+    getScore(){return this.score;}
+    getGender(){return this.gender;}
+}
+
 function setAnimeGenders(){
     animeGenders[0] = "Drama";
     animeGenders[1] = "Action";
@@ -21,15 +34,14 @@ function setAnimeGenders(){
 function add(){
     if(!validation()){
         alert("Name of Anime or Episodes is not in right format");
+        return;
     }
-    if(validation()){
-        alert("Validation was successfully ");
-        const name = document.getElementById("nameOfAnime").value;
+    alert("Validation was successfully ");
+    const name = document.getElementById("nameOfAnime").value;
 
-        //Code here
-        document.getElementById("nameOfAnime").value = "";
-        document.getElementById("numberOfEpisodes").value ="";
-    }
+    //Code here
+    document.getElementById("nameOfAnime").value = "";
+    document.getElementById("numberOfEpisodes").value ="";
 }
 
 function validation(){
@@ -37,7 +49,9 @@ function validation(){
     const errorSymbols =["@","#","{","}","[","]","<",">","/","(",")","%"];
     let isNameInRightFormat = name.length == 0 ? false : true;
     const episodes = document.getElementById("numberOfEpisodes").value;
-    const isEpisodesInRightFormat =  episodes.includes("/") ? true : false;
+    let isEpisodesInRightFormat =  episodes.includes("/") ? true : false;
+    const regExp = /[a-zA-Z]/g;   
+    isEpisodesInRightFormat = regExp.test(episodes) ? false : true;
     for(let i = 0 ; i < name.length; i ++){
         for(let j = 0; j < errorSymbols.length; j++){
             if(name.indexOf(errorSymbols[j]) > 0){
@@ -45,10 +59,5 @@ function validation(){
             }
         }
     }
-    if( isNameInRightFormat == isEpisodesInRightFormat){
-        return true;
-    }
-    else{
-        return false;
-    }
+    return isNameInRightFormat == true && isEpisodesInRightFormat == true ? true : false;
 }
