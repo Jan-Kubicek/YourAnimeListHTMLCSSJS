@@ -17,3 +17,28 @@ function setAnimeGenders(){
     }
     document.getElementById("genders").innerHTML = options;
 }
+
+function add(){
+    if(!validation()){
+        alert("Name of Anime is not in right format");
+    }
+    if(validation()){
+
+        //Code here
+
+    }
+}
+
+function validation(){
+    const name = document.getElementById("nameOfAnime").value;
+    const errorSymbols =["@","#","{","}","[","]","<",">","/","(",")","%"];
+    let isNameInRightFormat = name.length == 0 ? false : true;
+    for(let i = 0 ; i < name.length; i ++){
+        for(let j = 0; j < errorSymbols.length; j++){
+            if(name.indexOf(errorSymbols[j]) > 0){
+                isNameInRightFormat = false;
+            }
+        }
+    }
+    return isNameInRightFormat;
+}
