@@ -20,12 +20,15 @@ function setAnimeGenders(){
 
 function add(){
     if(!validation()){
-        alert("Name of Anime is not in right format");
+        alert("Name of Anime or Episodes is not in right format");
     }
     if(validation()){
+        alert("Validation was successfully ");
+        const name = document.getElementById("nameOfAnime").value;
 
         //Code here
-
+        document.getElementById("nameOfAnime").value = "";
+        document.getElementById("numberOfEpisodes").value ="";
     }
 }
 
@@ -33,6 +36,8 @@ function validation(){
     const name = document.getElementById("nameOfAnime").value;
     const errorSymbols =["@","#","{","}","[","]","<",">","/","(",")","%"];
     let isNameInRightFormat = name.length == 0 ? false : true;
+    const episodes = document.getElementById("numberOfEpisodes").value;
+    const isEpisodesInRightFormat =  episodes.includes("/") ? true : false;
     for(let i = 0 ; i < name.length; i ++){
         for(let j = 0; j < errorSymbols.length; j++){
             if(name.indexOf(errorSymbols[j]) > 0){
@@ -40,5 +45,10 @@ function validation(){
             }
         }
     }
-    return isNameInRightFormat;
+    if( isNameInRightFormat == isEpisodesInRightFormat){
+        return true;
+    }
+    else{
+        return false;
+    }
 }
