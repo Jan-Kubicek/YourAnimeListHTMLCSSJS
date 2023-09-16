@@ -38,8 +38,24 @@ function add(){
     }
     alert("Validation was successfully ");
     const name = document.getElementById("nameOfAnime").value;
+    const episodes = document.getElementById("numberOfEpisodes").value;
+    const score = document.getElementById("scoreOfAnime"); //! it doesnt return right value
+    const gender = document.getElementById("genders").value;
+    let anime = new animeConstructor(name,episodes,score,gender);
+    animeList.push(anime);
 
-    //Code here
+    const table = document.getElementById("mytbody");
+    for(let i = 0 ; i < animeList.length; i++){
+        const row = table.insertRow(-1);
+        const cellID = row.insertCell(0);       cellID.innerHTML = i;
+        const cellName = row.insertCell(1);     cellName.innerHTML = animeList[i].name;
+        const cellEpisodes = row.insertCell(2); cellEpisodes.innerHTML = animeList[i].episodes;
+        const cellScore = row.insertCell(3);    cellScore.innerHTML = animeList[i].score;
+        const cellGender = row.insertCell(4);   cellGender.innerHTML = animeList[i].gender;
+        const cellFind = row.insertCell(5);     cellFind.innerHTML = '<input type="button" value="Find" class="findButton" onclick="find()"></td>';
+        const cellDelete = row.insertCell(6);   cellDelete.innerHTML = '<td><input type="button" value="X" class="remove" onclick="removeRow()"></td>';
+    }
+    
     document.getElementById("nameOfAnime").value = "";
     document.getElementById("numberOfEpisodes").value ="";
 }
