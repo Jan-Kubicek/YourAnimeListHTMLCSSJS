@@ -11,17 +11,19 @@
     <header></header>
     <nav></nav>
     <main>
-        <table id="mytable">
-            <thead id="mythead">
-                <tr><th>ID</th><th>Name</th><th>Number of episodes</th><th>Score</th><th>Gender</th><th>Find</th><th>Remove</th></tr>
-            </thead>
-            <tbody id="mytbody">
-                <tr><td>0</td><td>Oregairu</td><td>20</td><td>80</td><td>Romantic</td><td><input type="button" value="Find" class="findButton" onclick="find()"></td><td><input type="button" value="X" class="remove" onclick="removeRow()"></td></tr>
-            </tbody>
-            <tfoot id="mytfoot">
-                <tr><td><input type="button" value="SORT" class="sort" onclick="sortIDs()"></td><td><input type="button" value="SORT" class="sort" onclick="sortNames()"></td><td><input type="button" value="SORT" class="sort" onclick="sortGenders()"></td><td><input type="button" value="SORT" class="sort" onclick="sortScores()"></td><td colspan="3">Jan Kubicek @2023 | Last change 16.09.2023</td></tr>
-            </tfoot>
-        </table>
+        <div id="div-table">
+            <table id="mytable">
+                <thead id="mythead">
+                    <tr><th class="number">ID</th><th class="nam">Name</th><th class="number">Number of episodes</th><th class="number">Score</th><th class="gndr">Gender</th><th class="btn">Find</th><th class="btn">Remove</th></tr>
+                </thead>
+                <tbody id="mytbody">
+                    <tr><td>0</td><td>OregairuOregairuOregairuOregairu</td><td>20</td><td>80</td><td>Romantic</td><td><input type="button" value="Find" class="findButton" onclick="find()"></td><td><input type="button" value="X" class="remove" onclick="removeRow()"></td></tr>
+                </tbody>
+                <tfoot id="mytfoot">
+                    <tr><td><input type="button" value="SORT" class="sort" onclick="sortIDs()"></td><td><input type="button" value="SORT" class="sort" onclick="sortNames()"></td><td><input type="button" value="SORT" class="sort" onclick="sortGenders()"></td><td><input type="button" value="SORT" class="sort" onclick="sortScores()"></td><td><input type="button" value="SORT" class="sort" onclick="sortNames()"></td><td colspan="2"></td></tr>
+                </tfoot>
+            </table>
+        </div>
         <fieldset>
             <legend>Control panel for table</legend>
             <form>
@@ -37,6 +39,7 @@
                 <input type="button" value="Add to Table" id="addToTable" onclick="add()"><br>
                 <input type="button" value="Remove all rows in table" id="removeAllRows" onclick="removeAll()"><br>
                 <input type="button" value="Print page" id ="print" onclick="window.print();"><br>
+                <label>Jan Kubicek @2023 | Last change 16.09.2023</label>
             </form>
         </fieldset>
     </main>
