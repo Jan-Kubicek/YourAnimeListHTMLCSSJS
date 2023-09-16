@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script setAnimeGenders()></script>
     <script src="script.js"></script>
     <title>Document</title>
 </head>
-<body>
+<body onload="setAnimeGenders()">
     <header></header>
     <nav></nav>
     <main>
@@ -30,11 +31,9 @@
                 <label for="nameOfAnime">Name of Anime</label>
                 <input type="text" name="nameOfAnime" id="nameOfAnime" placeholder="Enter Name" ><br>
                 <label for="scoreOfAnime">Select score of Anime based on your opinion</label>
-                <input type="range" name="scoreOfAnime" id="scoreOfAnine"><br>  <!-- zkusím potom měnit barvu range baru dle velikosti aby odpovídal barvě výsledného hodnocení-->
+                <input type="range" name="scoreOfAnime" id="scoreOfAnine"><br>
                 <label for="genders">Select gender of your Anime</label>
                 <select id="genders">
-                    <option id="romantic">Romantic</option>
-                    <!-- naplnit pomocí js a nějakého seznamu tohle je na dlouho -->
                 </select><br>
                 <input type="button" value="Add to Table" id="addToTable" onclick="add()"><br>
                 <input type="button" value="Remove all rows in table" id="removeAllRows" onclick="removeAll()"><br>
