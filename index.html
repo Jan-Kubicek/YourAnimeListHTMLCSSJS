@@ -10,7 +10,36 @@
 <body>
     <header></header>
     <nav></nav>
-    <main></main>
+    <main>
+        <table id="mytable">
+            <thead id="mythead">
+                <tr><th>ID</th><th>Name</th><th>Number of episodes</th><th>Score</th><th>Gender</th><th>Find</th><th>Remove</th></tr>
+            </thead>
+            <tbody id="mytbody">
+                <tr><td>0</td><td>Oregairu</td><td>20</td><td>80</td><td>Romantic</td><td><input type="button" value="Find" class="findButton" onclick="find()"></td><td><input type="button" value="X" class="remove" onclick="removeRow()"></td></tr>
+            </tbody>
+            <tfoot id="mytfoot">
+                <tr><td><input type="button" value="SORT" class="sort" onclick="sortIDs()"></td><td><input type="button" value="SORT" class="sort" onclick="sortNames()"></td><td><input type="button" value="SORT" class="sort" onclick="sortGenders()"></td><td><input type="button" value="SORT" class="sort" onclick="sortScores()"></td><td colspan="3">Jan Kubicek @2023 | Last change 16.09.2023</td></tr>
+            </tfoot>
+        </table>
+        <fieldset>
+            <legend>Control panel for table</legend>
+            <form>
+                <label for="nameOfAnime">Name of Anime</label>
+                <input type="text" name="nameOfAnime" id="nameOfAnime" placeholder="Enter Name" ><br>
+                <label for="scoreOfAnime">Select score of Anime based on your opinion</label>
+                <input type="range" name="scoreOfAnime" id="scoreOfAnine"><br>  <!-- zkusím potom měnit barvu range baru dle velikosti aby odpovídal barvě výsledného hodnocení-->
+                <label for="genders">Select gender of your Anime</label>
+                <select id="genders">
+                    <option id="romantic">Romantic</option>
+                    <!-- naplnit pomocí js a nějakého seznamu tohle je na dlouho -->
+                </select><br>
+                <input type="button" value="Add to Table" id="addToTable" onclick="add()"><br>
+                <input type="button" value="Remove all rows in table" id="removeAllRows" onclick="removeAll()"><br>
+                <input type="button" value="Print page" id ="print" onclick="window.print();"><br>
+            </form>
+        </fieldset>
+    </main>
     <footer></footer>
 </body>
 </html>
