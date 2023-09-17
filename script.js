@@ -61,8 +61,8 @@ function add(){
         const cellEpisodes = row.insertCell(2); cellEpisodes.innerHTML = animeList[i].episodes;
         const cellScore = row.insertCell(3);    cellScore.innerHTML = animeList[i].score;
         const cellGender = row.insertCell(4);   cellGender.innerHTML = animeList[i].gender;
-        const cellFind = row.insertCell(5);     cellFind.innerHTML = '<input type="button" value="Find" class="findButton" onclick="find()"></td>';
-        const cellDelete = row.insertCell(6);   cellDelete.innerHTML = '<td><input type="button" value="X" class="remove" onclick="removeRow()"></td>';
+        const cellFind = row.insertCell(5);     cellFind.innerHTML = `<input type="button" value="Find" class="findButton" id="find${i}" onclick="find(${i})"></td>`;
+        const cellDelete = row.insertCell(6);   cellDelete.innerHTML = `<td><input type="button" value="X" class="remove" id="remove${i}" onclick="removeRow()"></td>`;
         isAnimeAdded = true;
     } 
     document.getElementById("nameOfAnime").value = "";
@@ -85,4 +85,14 @@ function validation(){
         }
     }
     return isNameInRightFormat == true && isEpisodesInRightFormat == true ? true : false;
+}
+
+function find(i){
+    const idOfRow = i;
+    const nameOfAnimeInSelectedRow = animeList[i].name;
+    const hyperlink = "https://myanimelist.net/anime.php?cat=anime&q="+nameOfAnimeInSelectedRow;
+    const text = "Do you want to see information about your selected anime?";
+    if(confirm(text) == true){
+        window.open(hyperlink,'_blank');
+    }
 }
