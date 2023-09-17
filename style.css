@@ -37,6 +37,9 @@ tbody#mytbody{
     background-color: rgba(95, 32, 153, 0.555);
     color:white;
 }
+#mytbody tr:nth-child(even) td{
+    border-right: 2px solid rgba(95, 32, 153, 0.555);
+}
 #mytbody .findButton{
     background-color: rgb(95, 32, 153);
     color:white;
