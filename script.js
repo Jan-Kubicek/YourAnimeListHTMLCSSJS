@@ -122,3 +122,47 @@ function importAnimes(){
         isAnimeAdded = true;
     } 
 }
+
+function sortIDs(){
+
+    removeAll();
+    importAnimes();
+}
+
+function sortNames(){
+
+    removeAll();
+    importAnimes();
+}   
+
+function sortNumberOfEpisodes(){
+
+    removeAll();
+    importAnimes();
+}
+
+function sortScores(){
+    //*     From highest to lowest
+    for(let i = 0; i < animeList.length; i ++){
+        for(let j = 0; j < animeList.length; i++){
+            if(animeList[j].score < animeList[j+1].score){
+                const anime = Object.assign({},animeList[j]);
+                animeList[j] = animeList[j+1];
+                animeList[j+1] = anime;
+            }
+        }
+    }
+    if(animeList[0].score < animeList[animeList.length].score){
+        const anime = Object.assign({},animeList[0]);
+        animeList[0] = animeList[animeList.length];
+        animeList[animeList.length] = anime;
+    }
+    removeAll();
+    importAnimes();
+}
+
+function sortGenders(){
+
+    removeAll();
+    importAnimes();
+}
