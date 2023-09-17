@@ -18,7 +18,6 @@
                     <tr><th class="number">ID</th><th class="nam">Name</th><th class="number">Number of episodes</th><th class="number">Score</th><th class="gndr">Gender</th><th class="btn">Find</th><th class="btn">Remove</th></tr>
                 </thead>
                 <tbody id="mytbody">
-                    <tr><td>0</td><td>OregairuOregairuOregairuOregairu</td><td>20</td><td>80</td><td>Romantic</td><td><input type="button" value="Find" class="findButton" onclick="find()"></td><td><input type="button" value="X" class="remove" onclick="removeRow()"></td></tr>
                 </tbody>
                 <tfoot id="mytfoot">
                     <tr><td><input type="button" value="SORT" class="sort" onclick="sortIDs()"></td><td><input type="button" value="SORT" class="sort" onclick="sortNames()"></td><td><input type="button" value="SORT" class="sort" onclick="sortGenders()"></td><td><input type="button" value="SORT" class="sort" onclick="sortScores()"></td><td><input type="button" value="SORT" class="sort" onclick="sortNames()"></td><td colspan="2"></td></tr>
@@ -31,7 +30,7 @@
                 <label for="nameOfAnime">Name of Anime</label>
                 <input type="text" name="nameOfAnime" id="nameOfAnime" placeholder="Enter Name" ><br>
                 <label for="scoreOfAnime">Select score of Anime based on your opinion</label>
-                <input type="range" name="scoreOfAnime" id="scoreOfAnine" value="50"><br>
+                <input type="range" min="0" value="50" max="100" id="scoreOfAnime"><br>
                 <label for="numberOfEisodes">Write number:</label>
                 <input type="text" name="numberOfEisodes" id="numberOfEpisodes" placeholder="Watched / All episodes"><br>
                 <label for="genders">Select gender of your Anime</label>

@@ -1,5 +1,6 @@
 const animeList = [];
 const animeGenders = [];
+let isAnimeAdded = false;
 
 class animeConstructor {
     constructor(name, episodes, score, gender) {
@@ -36,10 +37,18 @@ function add(){
         alert("Name of Anime or Episodes is not in right format");
         return;
     }
+    if(isAnimeAdded){
+        const numberOfRows = document.getElementById("mytbody").rows.length;
+        for(let j = 0; j < numberOfRows; j++){
+            for(const row of document.getElementById("mytbody").rows){
+                document.getElementById("mytbody").deleteRow(row);  
+            }
+        }
+    }
     alert("Validation was successfully ");
     const name = document.getElementById("nameOfAnime").value;
     const episodes = document.getElementById("numberOfEpisodes").value;
-    const score = document.getElementById("scoreOfAnime"); //! it doesnt return right value
+    const score = Number(document.getElementById("scoreOfAnime").value); //! it doesnt return right value
     const gender = document.getElementById("genders").value;
     let anime = new animeConstructor(name,episodes,score,gender);
     animeList.push(anime);
@@ -54,8 +63,8 @@ function add(){
         const cellGender = row.insertCell(4);   cellGender.innerHTML = animeList[i].gender;
         const cellFind = row.insertCell(5);     cellFind.innerHTML = '<input type="button" value="Find" class="findButton" onclick="find()"></td>';
         const cellDelete = row.insertCell(6);   cellDelete.innerHTML = '<td><input type="button" value="X" class="remove" onclick="removeRow()"></td>';
-    }
-    
+        isAnimeAdded = true;
+    } 
     document.getElementById("nameOfAnime").value = "";
     document.getElementById("numberOfEpisodes").value ="";
 }
